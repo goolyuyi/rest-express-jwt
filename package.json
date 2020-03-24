@@ -18,7 +18,6 @@
   "scripts": {
     "test": "mocha ./test/test.js"
   },
-  "author": "goolyuyi",
   "repository": {
     "type": "git",
     "url": "https://github.com/goolyuyi/rest-express-jwt.git"

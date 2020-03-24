@@ -68,7 +68,7 @@ const auth = function (option) {
         if (mode === 'jwt-in-cookie') {
             let token = getCookieToken(req)
             let jwtid = jwt.decode(token).jwtid;
-            let jwtid_digest = getHeaderID(req)
+            let jwtid_digest = getHeaderID(req);
 
             if (verify(jwtid, jwtid_digest)) {
                 req[jwtidProperty] = {

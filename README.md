@@ -3,8 +3,11 @@ A restful compatible jwt authorization/authentication/user-system middleware for
 It handle ALL the secure risk like jwt intercepted/stolen/leaking/forgery
 
 # Installation
-```
+```bash
 npm install -S rest-express-jwt
+```
+```bash
+yarn add rest-express-jwt
 ```
 # How to use
 ```js
@@ -34,7 +37,7 @@ app.get('/user-info', jwtAuth, function (req, res, next) {
 app.get('/login', function (req, res, next) {
     let restjwt = jwtCreate({user: 'mock-user'}, {
         expiresIn: 60 * 60,
-        issuer: 'yijiang.life',
+        issuer: 'goolyuyi.com',
         notBefore: 0
     });
 
@@ -57,7 +60,7 @@ app.get('/login', function (req, res, next) {
 * to prevent `CSRF` attack, the attacker impossible retrieve `jwt` in user agent
 
 **RISKS**:
-* some infomations in `jwt` may be extract by attacker, if they intercepted/stolen the `jwt` even they are not able to use it.
+* some information in `jwt` may be extract by attacker, if they intercepted/stolen the `jwt` even they are not able to use it.
 
 ## Schema `jwt-in-cookie`:
 
@@ -86,3 +89,4 @@ app.get('/login', function (req, res, next) {
 
 # Upcoming
 * jwt blacklist
+* jwt local encrypt

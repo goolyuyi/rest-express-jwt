@@ -24,7 +24,7 @@ app.get('/user-info', jwtAuth, function (req, res, next) {
 app.get('/login', function (req, res, next) {
     let restjwt = jwtCreate({user: 'mock-user'}, {
         expiresIn: 60 * 60,
-        issuer: 'yijiang.life',
+        issuer: 'goolyuyi.com',
         notBefore: 0
     });
 

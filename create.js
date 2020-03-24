@@ -3,8 +3,8 @@ const crypto = require('crypto');
 /**
  * @typedef {Object} RESTJwt
  * @property {string} jwt
- * @property {string} tokenid
- * @property {string} tokenid_digest
+ * @property {string} jwtid
+ * @property {string} jwtid_digest
  */
 /**
  *
