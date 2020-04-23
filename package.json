@@ -1,6 +1,6 @@
 {
   "name": "rest-express-jwt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a restful compatible jwt authorization middleware for express.",
   "main": "rest-express-jwt.js",
   "author": "goolyuyi",
@@ -9,10 +9,12 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
     "mocha": "^7.1.1"
   },
   "dependencies": {
     "express-jwt": "^5.3.1",
+    "jose": "^1.25.2",
     "jsonwebtoken": "^8.5.1"
   },
   "scripts": {

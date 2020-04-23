@@ -23,9 +23,9 @@ const create = function (option) {
     if (!secret) throw new ReferenceError('secret must has a value');
 
     let opt = option || {};
-    let mode = opt.mode || 'jwt-in-cookie';
-    let signOptions = opt.signOptions;
+
     let jwtidSize = opt.jwtidSize ? Math.min(Math.max(opt.jwtidSize, 0), 512) : 160;
+    let mode = opt.mode || 'jwt-in-cookie';
     let hash = opt.hash || true;
     let hashAlgo = opt.hashAlgo || 'sha1';
 
@@ -38,19 +38,21 @@ const create = function (option) {
      * @param {object} signOptions
      * @return {RESTJwt}
      */
-    return function (payload, signOptions) {
+    return function (payload, signOption) {
         let jwtid = randomID();
         let jwtid_digest = hash ? crypto.createHash(hashAlgo).update(jwtid).digest('hex') : jwtid;
 
         let jwt_p = mode === 'jwt-in-cookie' ? {jwtid: jwtid} : {jwtid_digest: jwtid_digest};
+        let jwt_raw = Object.assign({}, jwt_p, payload);
         let signed_token = jwt.sign(
-            Object.assign({}, jwt_p, payload),
+            jwt_raw,
             secret,
-            signOptions
+            signOption
         );
 
         return {
             jwt: signed_token,
+            jwt_raw: jwt_raw,
             jwtid: jwtid,
             jwtid_digest: jwtid_digest
         }

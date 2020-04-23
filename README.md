@@ -86,6 +86,18 @@ app.get('/login', function (req, res, next) {
 | Client Header |        authorization(with Bearer) |                   jwtid_digest |
 | Verify Method | hash(jwtid) ===  jwt.jwtid_digest | hash(jwt.jwtid)===jwtid_digest |
 
+# Code:
+###  jwt-in-header
+```js
+req.headers.authorization
+req.cookies.jwtid
+```
+
+### jwt-in-cookie
+```js
+req.headers.jwtid_digest
+req.cookies.jwt
+```
 
 # Upcoming
 * jwt blacklist
